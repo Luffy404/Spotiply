@@ -1,0 +1,11 @@
+{
+  "CLIENT_ID": "",
+  "CLIENT_SECRET": "",
+  "playlist_id": "",
+  "playlist_name": "Liked Songs",
+  "playlist_description": "My last Liked Songs. Refreshes every 20 Minutes. Created with Spotiply by Luffy.",
+  "max_songs": 25,
+  "refresh_time": 20,
+  "create_playlist": false,
+  "playlist_public": true
+}
