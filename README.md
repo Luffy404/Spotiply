@@ -23,13 +23,21 @@ git clone https://github.com/Luffy404/Spotiply
 
 After that install all required python Libraries that can be found in requirements.txt.
 
+On Windows:
+
+```bat
+py -m pip install -r requirements.txt
+```
+
+On Linux:
+
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 
 Then configure config.json. You will require a Client ID and Client Secret which you can obtain on the [Developer Page of Spotify](https://developer.spotify.com/dashboard/).
 
-You need to create a new application and edit the Settings. Under "Redirect URIs" you'll need to add the REDIRECT_URI found in config.json (It's set to "http://localhost" by default).
+You need to create a new application and edit the Settings. Under "Redirect URIs" you'll need to add the REDIRECT_URI found in [config.json](https://github.com/Luffy404/Spotiply/blob/main/config.json#L4) (It's set to "http://localhost" by default).
 
 ## Usage
 
