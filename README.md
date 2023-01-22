@@ -64,34 +64,35 @@ After that follow the Instructions that may appear in the Script.
 * "CLIENT_ID"
   * The client ID from Spotify
 * "CLIENT_SECRET"
-  * The client Secret from Spotify
+  * The client secret from Spotify
 * "REDIRECT_URI"
-  * The Redirect URI used by Spotify to authorize Access.
+  * The Redirect URI used by Spotify to authorize access.
 * "SCOPE"
   * The scope your application will use.
   * [More Scopes can be found here](https://developer.spotify.com/documentation/general/guides/authorization/scopes/)
 * "playlist_id"
-  * The ID of the Playlist that should get updated.
-  * The ID is found in the URL if you copy your Playlist.
-  * If left empty or invalid a Playlist will be generated.
+  * The ID of the playlist that should get updated.
+  * The ID is found in the URL if you copy your playlist.
+  * If left empty or invalid a playlist will be generated.
 * "playlist_name"
-  * This Value will be the Name of the Playlist.
-    * This will only take effect if no Playlist is found.
+  * This value will be the Name of the playlist.
+    * This will only take effect if no playlist is found.
 * "playlist_description"
-  * This Value will be the Description of the Playlist.
-    * This will only take effect if no Playlist is found.
-    * **Currently it's not possible to add a Description**
+  * This value will be the description of the playlist.
+    * This will only take effect if no playlist is found.
+    * **Currently, it's not possible to add a Description**
 * "max_songs"
   * This value will define how many tracks will be added to the playlist.
 * "refresh_time"
-  * Time in Minutes it waits until it checks again.
+  * Time in minutes it waits until it compares the playlists.
 * "is_public"
   * Defines if the playlist is set public.
-    * This will only take effect if no Playlist is found.
-
+    * This will only take effect if no playlist is found.
+* "token_expiration"
+  * Time in minutes the token will be valid.
 ## Contributing
 
-Pull requests, Issue reports and feature requests are welcome. Any contributions are greatly appreciated.
+Pull requests, issue reports and feature requests are welcome. Any contributions are greatly appreciated.
 
 ## License
 
