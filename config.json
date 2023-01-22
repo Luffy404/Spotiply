@@ -5,8 +5,9 @@
     "SCOPE": "user-read-private user-read-email playlist-modify-public playlist-modify-private user-library-read user-library-modify",
     "playlist_id": "",
     "playlist_name": "Liked Songs",
-    "playlist_description": "My last Liked Songs. Refreshes every 20 Minutes. Created with Spotiply by Luffy.",
+    "playlist_description": "My last Liked Songs. Refreshes every 30 Minutes. Created with Spotiply by Luffy.",
     "max_songs": 25,
     "refresh_time": 30,
-    "is_public": true
+    "is_public": true,
+    "token_expiration": 1200
 }

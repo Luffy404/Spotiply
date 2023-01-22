@@ -35,39 +35,59 @@ def login(client_id, client_secret, redirect_uri, scope):
 
 
 def get_playlist(sp):
-    if read_config("playlist_id") == "" or \
-            sp.playlist_items(read_config("playlist_id"), limit=read_config("max_songs"))['total'] == 0:
-        logging.info("Creating new playlist")
-        playlist = sp.user_playlist_create(user=sp.me()['id'], name=read_config("playlist_name"),
+    if read_config("playlist_id") == "" \
+            or sp.playlist_items(read_config("playlist_id"), limit=read_config("max_songs"))['total'] == 0:
+        
+        logging.info("Creating new playlist...")
+        
+        playlist = sp.user_playlist_create(user=sp.me()['id'],
+                                           name=read_config("playlist_name"),
                                            public=read_config("is_public"),
                                            collaborative=False,
                                            description=read_config("playlist_description"))
+        
         set_config("playlist_id", playlist['id'])
+        
     return sp.playlist_items(read_config("playlist_id"), limit=read_config("max_songs"))
 
 
 def compare_playlists(liked_playlist, playlist):
     is_same = False
-    for idx, item in enumerate(liked_playlist['items']):
-        for idx2, item2 in enumerate(playlist['items']) if playlist else enumerate([]):
-            if item['track']['id'] == item2['track']['id'] and idx == idx2:
+    for idx_liked, item_liked in enumerate(liked_playlist['items']):
+        for idx_playlist, item_playlist in enumerate(playlist['items']) if playlist else enumerate([]):
+            # If the liked song is in the playlist and the index is the same, it's the same playlist
+            if item_liked['track']['id'] == item_playlist['track']['id'] and idx_liked == idx_playlist:
                 is_same = True
-    logging.debug(f"Is same: {is_same}")
+    logging.debug(f"Is same Playlist?: {is_same}")
     return is_same
 
 
-# In config.json, if playlist_id is not set, it will create a new playlist!
 if __name__ == "__main__":
     logging.debug("Logging into Spotify...")
+
     spotify = login(read_config('CLIENT_ID'),
                     read_config('CLIENT_SECRET'),
                     read_config('REDIRECT_URI'),
                     read_config('SCOPE'))
-    logging.info("Logged in!")
+    login_time = datetime.datetime.now()
+
+    logging.info(f"Logged in at {login_time}!")
+
     while True:
+        # If the token is expired, login again
+        if datetime.datetime.now() > login_time + datetime.timedelta(seconds=read_config("token_expiration")*60):
+            logging.debug("Token expired, logging in again...")
+            spotify = login(read_config('CLIENT_ID'),
+                            read_config('CLIENT_SECRET'),
+                            read_config('REDIRECT_URI'),
+                            read_config('SCOPE'))
+            login_time = datetime.datetime.now()
+            logging.info(f"Logged in at {login_time}!")
+
         logging.debug("Getting liked songs...")
         liked_songs = spotify.current_user_saved_tracks(limit=read_config("max_songs"))
         logging.info("Got liked songs!")
+
         logging.debug("Getting playlist...")
         playlist_songs = get_playlist(spotify)
         logging.info("Got playlist!")
@@ -79,7 +99,7 @@ if __name__ == "__main__":
         else:
             logging.info("Playlist is not up to date!")
             spotify.playlist_replace_items(read_config("playlist_id"),
-                                           [item['track']['uri'] for item in liked_songs['items']])
+                                           [item_liked['track']['uri'] for item_liked in liked_songs['items']])
             logging.info(f"Playlist updated at {datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')}!")
 
         logging.info("Next Check: " + (
