@@ -2,6 +2,8 @@
 
 A Script that checks for your last liked songs on Spotify and adds it to a defined Playlist.
 
+![](https://github.com/Luffy404/Spotiply/blob/main/.github/demo.gif)
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
