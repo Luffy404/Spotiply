@@ -80,7 +80,6 @@ After that follow the Instructions that may appear in the Script.
 * "playlist_description"
   * This value will be the description of the playlist.
     * This will only take effect if no playlist is found.
-    * **Currently, it's not possible to add a Description**
 * "max_songs"
   * This value will define how many tracks will be added to the playlist.
 * "refresh_time"
