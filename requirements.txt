@@ -3,3 +3,4 @@ setuptools==66.1.1
 wheel==0.38.4
 
 spotipy~=2.22.0
+urllib3~=1.26.14
