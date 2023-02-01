@@ -1,6 +1,17 @@
+<div align="center">
+
 # Spotiply
 
+[![Python][python-shield]][python-url]
+[![Code style: black][black-shield]][black-url]
+[![GitHub contributors][contributors-shield]][contributors-url] 
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
 A Script that checks for your last liked songs on Spotify and adds it to a defined Playlist.
+</div>
 
 ![](https://github.com/Luffy404/Spotiply/blob/main/.github/demo.gif)
 
@@ -15,8 +26,11 @@ A Script that checks for your last liked songs on Spotify and adds it to a defin
   </ol>
 </details>
 
+<div align="center">
+
 ## Installation
 
+</div>
 Use the Version Control System [git](https://git-scm.com) to install Spotiply.
 
 ```bash
@@ -41,7 +55,11 @@ Then configure config.json. You will require a Client ID and Client Secret which
 
 You need to create a new application and edit the Settings. Under "Redirect URIs" you'll need to add the REDIRECT_URI found in [config.json](https://github.com/Luffy404/Spotiply/blob/main/config.json#L4) (It's set to "http://localhost" by default).
 
+<div align="center">
+
 ## Usage
+
+</div>
 
 Run main.py
 
@@ -59,7 +77,11 @@ python3 main.py
 
 After that follow the Instructions that may appear in the Script.
 
+<div align="center">
+
 ## Configuration
+
+</div>
 
 * "CLIENT_ID"
   * The client ID from Spotify
@@ -89,10 +111,34 @@ After that follow the Instructions that may appear in the Script.
     * This will only take effect if no playlist is found.
 * "token_expiration"
   * Time in minutes the token will be valid.
+
+<div align="center">
+
 ## Contributing
+
+</div>
 
 Pull requests, issue reports and feature requests are welcome. Any contributions are greatly appreciated.
 
+<div align="center">
+
 ## License
 
+</div>
+
 [MIT](https://choosealicense.com/licenses/mit/)
+
+[python-shield]: https://img.shields.io/badge/Python-3.9%20%7C%203.10-blue
+[python-url]: https://www.python.org/downloads/
+[black-shield]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black-url]: https://pypi.org/project/black
+[contributors-shield]: https://img.shields.io/github/contributors/Luffy404/Spotiply.svg?style=flat-square
+[contributors-url]: https://github.com/Luffy404/Spotiply/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Luffy404/Spotiply.svg?style=flat-square
+[forks-url]: https://github.com/Luffy404/Spotiply/network/members
+[stars-shield]: https://img.shields.io/github/stars/Luffy404/Spotiply.svg?style=flat-square
+[stars-url]: https://github.com/Luffy404/Spotiply/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Luffy404/Spotiply.svg?style=flat-square
+[issues-url]: https://github.com/Luffy404/Spotiply/issues
+[license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
+[license-url]: https://github.com/Luffy404/Spotiply/blob/main/LICENSE
