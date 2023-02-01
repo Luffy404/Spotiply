@@ -44,8 +44,7 @@ def get_playlist(sp):
         read_config("playlist_id") == ""
         or sp.playlist_items(
             read_config("playlist_id"), limit=read_config("max_songs")
-        )["total"]
-        == 0
+        )["total"] == 0
     ):
         logging.info("Creating new playlist...")
 
@@ -53,7 +52,6 @@ def get_playlist(sp):
             user=sp.me()["id"],
             name=read_config("playlist_name"),
             public=read_config("is_public"),
-            collaborative=False,
             description=read_config("playlist_description"),
         )
 
