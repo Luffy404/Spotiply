@@ -5,6 +5,7 @@ import urllib3.exceptions
 from spotipy.oauth2 import SpotifyOAuth
 import datetime
 import logging
+import os
 
 logging.basicConfig(
     level=logging.INFO,
@@ -12,18 +13,20 @@ logging.basicConfig(
     datefmt="%d-%m-%Y %H:%M:%S",
 )
 
+config_path = os.path.join(os.path.dirname(__file__), "config.json")
+cache_path = os.path.join(os.path.dirname(__file__), ".cache")
 
 def read_config(key):
-    with open("config.json") as f:
+    with open(config_path) as f:
         config = json.load(f)
     return config[key]
 
 
 def set_config(key, value):
-    with open("config.json") as f:
+    with open(config_path) as f:
         config = json.load(f)
     config[key] = value
-    with open("config.json", "w") as f:
+    with open(config_path, "w") as f:
         json.dump(config, f, indent=4)
 
 
@@ -35,6 +38,7 @@ def login():
             redirect_uri=read_config("REDIRECT_URI"),
             scope=read_config("SCOPE"),
             open_browser=False,
+            cache_handler=spotipy.CacheFileHandler(cache_path=cache_path)
         )
     )
 
