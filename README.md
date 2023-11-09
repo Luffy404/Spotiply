@@ -31,6 +31,7 @@ A Script that checks for your last liked songs on Spotify and adds it to a defin
 ## Installation
 
 </div>
+
 Use the Version Control System [git](https://git-scm.com) to install Spotiply.
 
 ```bash
